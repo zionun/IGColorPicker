@@ -10,7 +10,7 @@
 
 import Foundation
 
-@objc public protocol ColorPickerViewDelegate: class {
+@objc public protocol ColorPickerViewDelegate: AnyObject {
     
     func colorPickerView(_ colorPickerView: ColorPickerView, didSelectItemAt indexPath: IndexPath)
     
