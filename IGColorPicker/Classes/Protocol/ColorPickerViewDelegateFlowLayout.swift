@@ -10,7 +10,7 @@
 
 import Foundation
 
-@objc public protocol ColorPickerViewDelegateFlowLayout: class {
+@objc public protocol ColorPickerViewDelegateFlowLayout: AnyObject {
     
     @objc optional func colorPickerView(_ colorPickerView: ColorPickerView, sizeForItemAt indexPath: IndexPath) -> CGSize
     
@@ -19,4 +19,6 @@ import Foundation
     @objc optional func colorPickerView(_ colorPickerView: ColorPickerView, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
     
     @objc optional func colorPickerView(_ colorPickerView: ColorPickerView, insetForSectionAt section: Int) -> UIEdgeInsets
+
+    @objc optional func colorPickerView(_ colorPickerView: ColorPickerView, shouldApplyBorderAt indexPath: IndexPath) -> Bool
 }

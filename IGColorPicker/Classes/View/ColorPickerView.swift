@@ -164,6 +164,14 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
         
         cell.backgroundColor = colors[indexPath.item]
         
+        if let layoutDelegate = layoutDelegate, let shouldApplyBorder = layoutDelegate.colorPickerView?(self, shouldApplyBorderAt: indexPath), shouldApplyBorder == true {
+            cell.layer.borderWidth = 1.0
+            cell.layer.borderColor = UIColor.lightGray.cgColor
+        } else {
+            cell.layer.borderWidth = 0.0
+            cell.layer.borderColor = nil
+        }
+        
         if style == .circle {
             cell.layer.cornerRadius = cell.bounds.width / 2
         }
